@@ -1,0 +1,19 @@
+build-job:
+  stage:build
+  script:
+    - echo "Hello, I'm stage build"
+
+test-script:
+  stage: test
+  script:
+    - echo "Hello, I'm stage Test"
+
+test-build:
+  stage: test
+  script:
+    - echo "Hello, I'm testing build"
+
+deploy:
+  stage: deploy
+  script:
+   - echo "Latest changes released to production"
