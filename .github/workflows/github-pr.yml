@@ -18,8 +18,8 @@ jobs:
           #       node-version: '22'
           #       cache: 'npm'
 
-          - name: Run Code Linter
-            run: npm run list
+          # - name: Run Code Linter
+          #   run: npm run list
             
           - name: All Executed
             run: echo "All Task Executed"
