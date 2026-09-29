@@ -12,11 +12,11 @@ jobs:
         steps:
           - name: Checkout Repo code
             uses: actions/checkout@v4
-          - name: Setup NodeJS
-            uses: actions/setup-node@v4
-            with:
-                node-version: '22'
-                cache: 'npm'
+          # - name: Setup NodeJS
+          #   uses: actions/setup-node@v4
+          #   with:
+          #       node-version: '22'
+          #       cache: 'npm'
 
           - name: Run Code Linter
             run: npm run list
