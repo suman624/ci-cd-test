@@ -1,19 +1,25 @@
-build-job: 
-stage: build
-script:
-    - echo "Hello, I'm stage build"
+name: Testing Pipeline
 
-test-script:
-  stage: test
-  script:
-    - echo "Hello, I'm stage Test"
+on: 
+    push:
+        branches: ["main"]
+        # branch: main
+    pull_request:
+        branches: ["main"]
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout Repo code
+            uses: actions/checkout@v4
+          - name: Setup NodeJS
+            uses: actions/setup-node@v4
+            with:
+                node-version: '22'
+                cache: 'npm'
 
-test-build:
-  stage: test
-  script:
-    - echo "Hello, I'm testing build"
-
-deploy:
-  stage: deploy
-  script:
-   - echo "Latest changes released to production"
+          - name: Run Code Linter
+            run: npm run list
+            
+          - name: All Executed
+            run: echo "All Task Executed"
